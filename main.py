@@ -6,6 +6,7 @@ import time
 import pyttsx3
 import datetime
 import pywhatkit
+import pyjokes
 r = sr.Recognizer()
 r.energy_threshold = 1000  # this is used to avoid noise
 
@@ -72,6 +73,8 @@ def respond(voiceData):
         pywhatkit.playonyt(song)
     # if 'let me hear all your possible voices' in voiceData:
         # checkVoices()
+    if 'tell me a joke' in voiceData:
+        botSpeaks(pyjokes.get_joke())
     if 'exit' in voiceData:
         botSpeaks('Bye! I hope to see you soon')
         exit()
