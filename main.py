@@ -86,8 +86,8 @@ def recordAudio(ask=False):
     with sr.Microphone() as source:
         if ask:
             botSpeaks(ask)
-        audio = r.listen(source)
         try:
+            audio = r.listen(source)
             voiceData = r.recognize_google(audio)
         except sr.UnknownValueError:
             print('Sorry, I did not understand you my friend!')
