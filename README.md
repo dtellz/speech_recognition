@@ -23,6 +23,9 @@ You can add other commands, but these are the ones that exist
 - Search in google -> Bot will open google in your browser with your query
 - Find Location -> Bot will ask for the location and then open google maps showing it
 - Show me a video -> Bot will open youtube with related videos
+- Tell me about -> Bot will tell you about whatever you ask from wikipedia
+- Play music -> Bot will play the song you require on youtube
+- Tell me a joke -> Bot will tell you a joke
 - Exit -> Bot will finish running.
 
 ### Apple Mac OS
