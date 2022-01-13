@@ -1,16 +1,49 @@
 from re import search
 import speech_recognition as sr
 import webbrowser
-from time import ctime
+import time
+import pyttsx3
+
 
 r = sr.Recognizer()
 
 
+class person:
+    name = ''
+
+    def setName(self, name):
+        self.name = name
+
+
+class assistant:
+    name = ''
+
+    def setName(self, name):
+        self.name = name
+
+
+speaker = pyttsx3.init()
+voices = speaker.getProperty('voices')
+speaker.setProperty('voice', voices[7].id)
+rate = speaker.getProperty('rate')
+speaker.setProperty('rate', 173)
+
+# BOT SPEAKING FUNCTION
+
+
+def botSpeaks(text):
+    speaker.say(text)
+    speaker.runAndWait()
+
+
+# ANSWERS TO USER VOICE
+
 def respond(voiceData):
     if 'what is your name' in voiceData:
+        botSpeaks('My name is' + bot.name)
         print('My name is Delta')
     if 'what time is it' in voiceData:
-        print(ctime())
+        print(time.ctime())
     if 'search' in voiceData:
         search = recordAudio('What do you want to search for?')
         url = 'https://google.com/search?q=' + search
@@ -26,9 +59,15 @@ def respond(voiceData):
         url = 'https://www.youtube.com/results?search_query=' + video
         webbrowser.get().open(url)
         print('Just relax and watch ' + video)
+    # if 'let me hear all your possible voices' in voiceData:
+        # checkVoices()
+    if 'exit' in voiceData:
+        botSpeaks('Bye! I hope to see you soon')
+        exit()
 
 
 def recordAudio(ask=False):
+    voiceData = ''
     with sr.Microphone() as source:
         if ask:
             print(ask)
@@ -42,6 +81,14 @@ def recordAudio(ask=False):
         return voiceData
 
 
+time.sleep(1)
+
+user = person()
+bot = assistant()
+bot.name = 'Delta'
+user.name = ''
+
 print("Hi, I am Diego's assistant bot, what do you need?")
-voiceData = recordAudio()
-respond(voiceData)
+while 1:
+    voiceData = recordAudio()
+    respond(voiceData)
