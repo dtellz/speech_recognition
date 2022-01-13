@@ -1,4 +1,4 @@
-# HI, I AM DELTA AND I AM A HOME ASSISTANT BOT :D
+# DELTA: HOME ASSISTANT BOT
 
 Python app that recognizes human language and answers acordingly
 
