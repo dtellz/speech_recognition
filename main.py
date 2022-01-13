@@ -3,7 +3,7 @@ import speech_recognition as sr
 import webbrowser
 import time
 import pyttsx3
-
+import datetime
 
 r = sr.Recognizer()
 
@@ -43,7 +43,7 @@ def respond(voiceData):
         botSpeaks('My name is' + bot.name)
         print('My name is Delta')
     if 'what time is it' in voiceData:
-        print(time.ctime())
+        print(datetime.datetime.now().strftime('%I:%M %p'))
     if 'search' in voiceData:
         search = recordAudio('What do you want to search for?')
         url = 'https://google.com/search?q=' + search
