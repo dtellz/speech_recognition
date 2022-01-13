@@ -9,6 +9,9 @@ Python app that recognizes human language and answers acordingly
 pip install speechrecognition
 pip install pyttsx3
 pip install pyaudio
+pip install wikipedia
+pip install pywhatkit
+pip install pyjokes
 ```
 
 ### Voice Commands
