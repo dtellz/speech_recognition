@@ -44,7 +44,7 @@ def respond(voiceData):
         print('My name is Delta')
     if 'what time is it' in voiceData:
         print(datetime.datetime.now().strftime('%I:%M %p'))
-    if 'search' in voiceData:
+    if 'search in google' in voiceData:
         search = recordAudio('What do you want to search for?')
         url = 'https://google.com/search?q=' + search
         webbrowser.get().open(url)
