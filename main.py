@@ -5,9 +5,9 @@ import wikipedia
 import time
 import pyttsx3
 import datetime
-
+import pywhatkit
 r = sr.Recognizer()
-r.energy_threshold = 300  # this is used to avoid noise
+r.energy_threshold = 1000  # this is used to avoid noise
 
 
 class person:
@@ -66,6 +66,10 @@ def respond(voiceData):
         subject = recordAudio('What do you want to know about?')
         info = wikipedia.summary(subject, 1)
         botSpeaks(info)
+    if 'play music' in voiceData:
+        song = recordAudio('What do you want to listen to?')
+        botSpeaks('playing ' + song)
+        pywhatkit.playonyt(song)
     # if 'let me hear all your possible voices' in voiceData:
         # checkVoices()
     if 'exit' in voiceData:
